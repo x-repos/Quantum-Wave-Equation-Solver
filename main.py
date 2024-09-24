@@ -54,7 +54,7 @@ def main() -> None:
             'synthesis': 'MatrixExponential',           # Time Evolution Synthesis Method
             'batch_size': 100,                          # Circuit Batch Size
             'fitter': 'cvxpy_gaussian',                 # State Tomography fitter
-            'backend': 'ibmq_qasm_simulator',           # Cloud backend name
+            'backend': 'ibm_brisbane',           # Cloud backend name
             'shots': 1000,                              # Number of circuit samples
             'optimization': 3,                          # Circuit optimization level
             'resilience': 1,                            # Circuit resilience level
@@ -68,7 +68,7 @@ def main() -> None:
     # Define solvers
     experiment.add_solver('ode', **parameters)
     experiment.add_solver('exp', **parameters)
-    experiment.add_solver('local', **parameters)
+    experiment.add_solver('cloud', **parameters)
 
     # Run experiment
     _ = experiment.run()
